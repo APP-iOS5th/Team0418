@@ -16,6 +16,7 @@ struct CalculateButtonStyle: ButtonStyle {
                 Rectangle()
                     .stroke(lineWidth: 1.0)
             }
+            .contentShape(Rectangle())
     }
 }
 
