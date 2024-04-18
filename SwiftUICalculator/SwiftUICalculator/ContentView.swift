@@ -49,9 +49,17 @@ struct ContentView: View {
     }
     
     func appendElement(with element: CalculatorElement) {
-        if element.isClearElement {
-            equation = ""
-        } else {
+        guard !element.isClearElement else {
+            equation = "0"
+            return
+        }
+        
+        guard let first = equation.first else {
+            return
+        }
+        
+        if first == "0" { equation = element.displayElement }
+        else {
             equation.append(element.displayElement)
         }
     }
