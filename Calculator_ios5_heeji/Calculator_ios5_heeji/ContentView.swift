@@ -15,7 +15,7 @@ struct ContentView: View {
                 /*계산 결과값*/
                 HStack{
                     Spacer()
-                    Text("123123")
+                    Text("77777777")
                         .padding()
                         .font(.system(size: 70))
                         .foregroundColor(.white)
