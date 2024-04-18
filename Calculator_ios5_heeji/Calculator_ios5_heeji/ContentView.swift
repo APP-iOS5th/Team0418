@@ -52,7 +52,9 @@ enum EBtntype: String {
 
 
 struct ContentView: View {
-    @State private var totalNumber: String = "0"
+    @State private var vTotalNumber: String = "0"
+    @State var vtempnum :Int  = 0
+    @State var vOpperatorType : EBtntype = .clear
     
     private let BtnData: [[EBtntype]] = [
         [.clear,.opposite,.percent, .devide],
@@ -68,7 +70,7 @@ struct ContentView: View {
                 /*계산 결과값*/
                 HStack{
                     Spacer()
-                    Text(totalNumber)
+                    Text(vTotalNumber)
                         .padding()
                         .font(.system(size: 70))
                         .foregroundColor(.white)
@@ -78,6 +80,7 @@ struct ContentView: View {
                         HStack{
                             ForEach(rows, id:\.self) {btns in
                                 Button(action:{
+                                    self.BtnClick_Input(btns)
                                 }){
                                     Text(btns.rawValue)
                                         .frame(width: btns ==
@@ -92,16 +95,75 @@ struct ContentView: View {
                             }
                             
                         }
-                            
-                            
-                            
-                            
                     }
                 }
             }
             .padding()
         }
     }
+    
+    
+    //버튼 클릭 시 입력되는 함수
+    func BtnClick_Input(_ btns: EBtntype)
+    {
+        //2024.04.18 사칙연산 미완성
+        let lClicNum  = btns.rawValue
+        
+        switch btns{
+        case .clear:
+            vTotalNumber = "0"
+        case .plus: //더하기
+            //숫자 저장 ->더하기-> 초기화
+            vtempnum = Int(vTotalNumber) ?? 0
+            vOpperatorType = .plus
+            vTotalNumber = "0"
+        case .minus:
+            //숫자 저장 ->빼기-> 초기화
+            vtempnum = Int(vTotalNumber) ?? 0
+            vOpperatorType = .minus
+            vTotalNumber = "0"
+        case .multiply:
+            //숫자 저장 ->곱하기-> 초기화
+            vtempnum = Int(vTotalNumber) ?? 0
+            vOpperatorType = .multiply
+            vTotalNumber = "0"
+        case .devide:
+            //숫자 저장 ->나누기-> 초기화
+            vtempnum = Int(vTotalNumber) ?? 0
+            vOpperatorType = .devide
+            vTotalNumber = "0"
+        case .equal:
+            if(vOpperatorType == .plus)
+            {
+                vTotalNumber = String((Int(vTotalNumber) ?? 0) + vtempnum)
+            }
+            else if(vOpperatorType == .minus)
+            {
+                vTotalNumber = String(vtempnum - (Int(vTotalNumber) ?? 0))
+            }
+            else if(vOpperatorType == .multiply)
+            {
+                vTotalNumber = String((Int(vTotalNumber) ?? 0) * vtempnum)
+            }
+            else if(vOpperatorType == .devide)
+            {
+                vTotalNumber = String((Int(vTotalNumber) ?? 0) / vtempnum)
+            }
+            
+        default: //번호 입력
+            let lClicNum  = btns.rawValue
+            
+            if(lClicNum == "0")
+            {
+                vTotalNumber = lClicNum
+            }
+            else
+            {
+                vTotalNumber += lClicNum
+            }
+        }
+    }
+
 }
 
 #Preview {
