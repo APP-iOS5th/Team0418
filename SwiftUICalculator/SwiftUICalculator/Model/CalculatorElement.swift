@@ -14,11 +14,10 @@ enum CalculatorElement: Hashable {
     case clear
     
     var isClearElement: Bool {
-        switch self {
-            case .clear:
-                return true
-            default:
-                return false
+        if case .clear = self {
+            return true
+        } else {
+            return false
         }
     }
     
