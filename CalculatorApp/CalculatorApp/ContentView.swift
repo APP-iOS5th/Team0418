@@ -13,6 +13,17 @@ enum ButtonType: String {
   case clear = "C"
 }
 
+extension Double {
+    func formattedString() -> String {
+        if self == Double(Int(self)) {
+            return String(Int(self))
+        } else {
+            return String(self)
+        }
+    }
+}
+
+
 struct KeypadStyle: ViewModifier {
   func body(content: Content) -> some View {
     content
@@ -35,7 +46,7 @@ struct ContentView: View {
 
 
   @State var calculateText: String = "0"
-  @State var tempNumber: Int = 0
+  @State var tempNumber: Double = 0
   @State var operatorType: ButtonType = .clear
   var body: some View {
     GeometryReader { geometry in
@@ -61,7 +72,7 @@ struct ContentView: View {
             }
           }
         }
-        Button(action: { print("===========") }) {
+        Button(action: { calculate() }) {
           Text("=")
             .frame(width: geometry.size.width - 45, height: 80)
             .background(.white)
@@ -84,8 +95,10 @@ struct ContentView: View {
     if calculateText == ButtonType.zero.rawValue {
 
       switch item {
-        case .devide, .comma, .minus, .multiple, .plus:
+        case .devide, .minus, .multiple, .plus:
           return calculateText = ButtonType.zero.rawValue
+      case .comma:
+        return calculateText += ButtonType.comma.rawValue
         default:
           return calculateText = item.rawValue
       }
@@ -93,6 +106,7 @@ struct ContentView: View {
     } else {
       switch item {
         case .devide, .minus, .multiple, .plus:
+          tempNumber = Double(calculateText)!
           calculateText = ButtonType.zero.rawValue;
           return operatorType = item;
         case .comma:
@@ -108,7 +122,25 @@ struct ContentView: View {
     }
   }
 
-  
+  // 계산 처리
+  func calculate() {
+    switch operatorType {
+      case .plus:
+        let result = tempNumber + Double(calculateText)!
+        return calculateText = "\(result.formattedString())"
+      case .minus:
+        let result = tempNumber - Double(calculateText)!
+        return calculateText = "\(result.formattedString())"
+      case .multiple:
+        let result = tempNumber * Double(calculateText)!
+        return calculateText = "\(result.formattedString())"
+      case .devide:
+        let result = tempNumber / Double(calculateText)!
+        return calculateText = "\(result.formattedString())"
+      default:
+        return
+      }
+  }
 }
 
 #Preview {
