@@ -13,7 +13,7 @@ enum CalculatorElement: Hashable {
     case floatingPoint
     case clear
     
-    var isHighlightable: Bool {
+    var isClearElement: Bool {
         switch self {
             case .clear:
                 return true
