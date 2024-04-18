@@ -53,8 +53,11 @@ struct ContentView: View {
             equation = "0"
             return
         }
-        
         guard let first = equation.first else {
+            return
+        }
+        
+        if element == .floatingPoint && equation == "0" {
             return
         }
         
