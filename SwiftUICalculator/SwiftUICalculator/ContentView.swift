@@ -46,6 +46,7 @@ struct ContentView: View {
             }
             .buttonStyle(.calculate)
         }
+        .padding(.horizontal)
     }
     
     func appendElement(with element: CalculatorElement) {
