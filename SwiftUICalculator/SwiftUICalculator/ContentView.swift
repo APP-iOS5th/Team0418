@@ -57,8 +57,10 @@ struct ContentView: View {
     }
     
     func calculate() {
-        let expression = NSExpression(format: equation)
-        if let result = expression.expressionValue(with: nil, context: nil) as? Int {
+        let expressiveValue = NSExpression(format: equation).expressionValue(with: nil, context: nil)
+        if let result = expressiveValue as? Int {
+            equation = "\(result)"
+        } else if let result = expressiveValue as? Double {
             equation = "\(result)"
         } else {
             equation = ""
