@@ -15,6 +15,7 @@
 		83C472912BD0DCA600252126 /* SwiftUICalculatorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C472902BD0DCA600252126 /* SwiftUICalculatorUITests.swift */; };
 		83C472932BD0DCA600252126 /* SwiftUICalculatorUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C472922BD0DCA600252126 /* SwiftUICalculatorUITestsLaunchTests.swift */; };
 		83C472A12BD0E34100252126 /* CalculateButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C472A02BD0E34100252126 /* CalculateButtonStyle.swift */; };
+		83C472A42BD0E8B500252126 /* CalculatorElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C472A32BD0E8B500252126 /* CalculatorElement.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,7 @@
 		83C472902BD0DCA600252126 /* SwiftUICalculatorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUICalculatorUITests.swift; sourceTree = "<group>"; };
 		83C472922BD0DCA600252126 /* SwiftUICalculatorUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUICalculatorUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		83C472A02BD0E34100252126 /* CalculateButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculateButtonStyle.swift; sourceTree = "<group>"; };
+		83C472A32BD0E8B500252126 /* CalculatorElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorElement.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 		83C472742BD0DCA500252126 /* SwiftUICalculator */ = {
 			isa = PBXGroup;
 			children = (
+				83C472A22BD0E8A500252126 /* Model */,
 				83C4729F2BD0E32C00252126 /* Style */,
 				83C472752BD0DCA500252126 /* SwiftUICalculatorApp.swift */,
 				83C472772BD0DCA500252126 /* ContentView.swift */,
@@ -136,6 +139,14 @@
 				83C472A02BD0E34100252126 /* CalculateButtonStyle.swift */,
 			);
 			path = Style;
+			sourceTree = "<group>";
+		};
+		83C472A22BD0E8A500252126 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				83C472A32BD0E8B500252126 /* CalculatorElement.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -270,6 +281,7 @@
 			files = (
 				83C472782BD0DCA500252126 /* ContentView.swift in Sources */,
 				83C472A12BD0E34100252126 /* CalculateButtonStyle.swift in Sources */,
+				83C472A42BD0E8B500252126 /* CalculatorElement.swift in Sources */,
 				83C472762BD0DCA500252126 /* SwiftUICalculatorApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
