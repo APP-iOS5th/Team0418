@@ -14,11 +14,7 @@ enum CalculatorElement: Hashable {
     case clear
     
     var isClearElement: Bool {
-        if case .clear = self {
-            return true
-        } else {
-            return false
-        }
+        self == .clear
     }
     
     var displayElement: String {
