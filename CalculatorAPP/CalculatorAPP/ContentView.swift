@@ -29,23 +29,164 @@ struct ContentView: View {
         return result
     }
     
+//    func onPressed() -> V{
+//        Text(number1)
+//    }
+    
     var body: some View {
         VStack {
             Text("\(number1) \(operators) \(number2)")
                 .font(.largeTitle)
         }
         Spacer()
-        Spacer()
-        Spacer()
+
         VStack {
             HStack {
-                Button {
+                Button() {
                     
                 }label: {
                     Text("7")
                         .font(.largeTitle)
+                        .foregroundColor(Color.black)
+                        .border(Color.black)
+                }
+                Button() {
+                    
+                }label: {
+                    Text("8")
+                        .font(.largeTitle)
+                        .foregroundColor(Color.black)
+                        .border(Color.black)
+                }
+                Button() {
+                    
+                }label: {
+                    Text("9")
+                        .font(.largeTitle)
+                        .foregroundColor(Color.black)
+                        .border(Color.black)
+                }
+                Button() {
+                    
+                }label: {
+                    Text("/")
+                        .font(.largeTitle)
+                        .foregroundColor(Color.black)
+                        .border(Color.black)
                 }
                 
+            }
+            HStack {
+                Button() {
+                    
+                }label: {
+                    Text("4")
+                        .font(.largeTitle)
+                        .foregroundColor(Color.black)
+                        .border(Color.black)
+                }
+                Button() {
+                    
+                }label: {
+                    Text("5")
+                        .font(.largeTitle)
+                        .foregroundColor(Color.black)
+                        .border(Color.black)
+                }
+                Button() {
+                    
+                }label: {
+                    Text("6")
+                        .font(.largeTitle)
+                        .foregroundColor(Color.black)
+                        .border(Color.black)
+                }
+                Button() {
+                    
+                }label: {
+                    Text("*")
+                        .font(.largeTitle)
+                        .foregroundColor(Color.black)
+                        .border(Color.black)
+                }
+                
+            }
+            HStack {
+                Button() {
+                    
+                }label: {
+                    Text("1")
+                        .font(.largeTitle)
+                        .foregroundColor(Color.black)
+                        .border(Color.black)
+                }
+                Button() {
+                    
+                }label: {
+                    Text("2")
+                        .font(.largeTitle)
+                        .foregroundColor(Color.black)
+                        .border(Color.black)
+                }
+                Button() {
+                    
+                }label: {
+                    Text("3")
+                        .font(.largeTitle)
+                        .foregroundColor(Color.black)
+                        .border(Color.black)
+                }
+                Button() {
+                    
+                }label: {
+                    Text("-")
+                        .font(.largeTitle)
+                        .foregroundColor(Color.black)
+                        .border(Color.black)
+                }
+                
+            }
+            HStack {
+                Button() {
+                    
+                }label: {
+                    Text(".")
+                        .font(.largeTitle)
+                        .foregroundColor(Color.black)
+                        .border(Color.black)
+                }
+                Button() {
+                    
+                }label: {
+                    Text("0")
+                        .font(.largeTitle)
+                        .foregroundColor(Color.black)
+                        .border(Color.black)
+                }
+                Button() {
+                    
+                }label: {
+                    Text("C")
+                        .font(.largeTitle)
+                        .foregroundColor(Color.black)
+                        .border(Color.black)
+                }
+                Button() {
+                    
+                }label: {
+                    Text("+")
+                        .font(.largeTitle)
+                        .foregroundColor(Color.black)
+                        .border(Color.black)
+                }
+            }
+            Button() {
+                
+            }label: {
+                Text("=")
+                    .font(.largeTitle)
+                    .foregroundColor(Color.black)
+                    .border(Color.black)
             }
             Spacer()
         }
