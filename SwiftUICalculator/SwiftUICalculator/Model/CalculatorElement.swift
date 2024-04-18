@@ -22,7 +22,7 @@ enum CalculatorElement: Hashable {
         }
     }
     
-    var displayLabel: String {
+    var displayElement: String {
         switch self {
             case let .operand(number):
                 return "\(number)"
