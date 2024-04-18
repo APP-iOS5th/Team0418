@@ -28,10 +28,8 @@ struct ContentView: View {
         }
         return result
     }
+    func onPressed() 
     
-//    func onPressed() -> V{
-//        Text(number1)
-//    }
     
     var body: some View {
         VStack {
@@ -46,6 +44,7 @@ struct ContentView: View {
                     
                 }label: {
                     Text("7")
+                        .padding(35)
                         .font(.largeTitle)
                         .foregroundColor(Color.black)
                         .border(Color.black)
@@ -54,6 +53,7 @@ struct ContentView: View {
                     
                 }label: {
                     Text("8")
+                        .padding(35)
                         .font(.largeTitle)
                         .foregroundColor(Color.black)
                         .border(Color.black)
@@ -62,6 +62,7 @@ struct ContentView: View {
                     
                 }label: {
                     Text("9")
+                        .padding(35)
                         .font(.largeTitle)
                         .foregroundColor(Color.black)
                         .border(Color.black)
@@ -70,6 +71,7 @@ struct ContentView: View {
                     
                 }label: {
                     Text("/")
+                        .padding(35)
                         .font(.largeTitle)
                         .foregroundColor(Color.black)
                         .border(Color.black)
@@ -81,6 +83,7 @@ struct ContentView: View {
                     
                 }label: {
                     Text("4")
+                        .padding(35)
                         .font(.largeTitle)
                         .foregroundColor(Color.black)
                         .border(Color.black)
@@ -89,6 +92,7 @@ struct ContentView: View {
                     
                 }label: {
                     Text("5")
+                        .padding(35)
                         .font(.largeTitle)
                         .foregroundColor(Color.black)
                         .border(Color.black)
@@ -97,6 +101,7 @@ struct ContentView: View {
                     
                 }label: {
                     Text("6")
+                        .padding(35)
                         .font(.largeTitle)
                         .foregroundColor(Color.black)
                         .border(Color.black)
@@ -105,6 +110,7 @@ struct ContentView: View {
                     
                 }label: {
                     Text("*")
+                        .padding(35)
                         .font(.largeTitle)
                         .foregroundColor(Color.black)
                         .border(Color.black)
@@ -116,6 +122,7 @@ struct ContentView: View {
                     
                 }label: {
                     Text("1")
+                        .padding(35)
                         .font(.largeTitle)
                         .foregroundColor(Color.black)
                         .border(Color.black)
@@ -124,6 +131,7 @@ struct ContentView: View {
                     
                 }label: {
                     Text("2")
+                        .padding(35)
                         .font(.largeTitle)
                         .foregroundColor(Color.black)
                         .border(Color.black)
@@ -132,6 +140,7 @@ struct ContentView: View {
                     
                 }label: {
                     Text("3")
+                        .padding(35)
                         .font(.largeTitle)
                         .foregroundColor(Color.black)
                         .border(Color.black)
@@ -140,6 +149,7 @@ struct ContentView: View {
                     
                 }label: {
                     Text("-")
+                        .padding(35)
                         .font(.largeTitle)
                         .foregroundColor(Color.black)
                         .border(Color.black)
@@ -151,6 +161,7 @@ struct ContentView: View {
                     
                 }label: {
                     Text(".")
+                        .padding(35)
                         .font(.largeTitle)
                         .foregroundColor(Color.black)
                         .border(Color.black)
@@ -159,6 +170,7 @@ struct ContentView: View {
                     
                 }label: {
                     Text("0")
+                        .padding(35)
                         .font(.largeTitle)
                         .foregroundColor(Color.black)
                         .border(Color.black)
@@ -167,6 +179,8 @@ struct ContentView: View {
                     
                 }label: {
                     Text("C")
+                        .foregroundColor(.red)
+                        .padding(35)
                         .font(.largeTitle)
                         .foregroundColor(Color.black)
                         .border(Color.black)
@@ -175,6 +189,7 @@ struct ContentView: View {
                     
                 }label: {
                     Text("+")
+                        .padding(35)
                         .font(.largeTitle)
                         .foregroundColor(Color.black)
                         .border(Color.black)
@@ -184,6 +199,7 @@ struct ContentView: View {
                 
             }label: {
                 Text("=")
+                    .padding(.horizontal,180)
                     .font(.largeTitle)
                     .foregroundColor(Color.black)
                     .border(Color.black)
