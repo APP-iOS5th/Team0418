@@ -6,55 +6,16 @@
 //
 
 import SwiftUI
-import Foundation
 import SwiftData
 
-@Model
-struct Memo {
-    var id: UUID = UUID()
-    var text: String
-    var color: Color
-    var created: Date
-    
-    init(text: String, color: Color, created: Date) {
-        self.text = text
-        self.color = color
-        self.created = created
-    }
-    var createdString: String {
-        let dateFormatter: DateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-        return dateFormatter.string(from: created)
-    }
-}
-
-class MemoStroe: ObservableObject {
-    @Published var memos: [Memo] = []
-    
-    //추가
-    func addMemo(_ text: String, color: Color) {
-        let memo: Memo = Memo(text: text, color: color, created: Date())
-    }
-    
-    //삭제
-    func removeMemo(_ targetMemo: Memo) {
-        if let index = memos.firstIndex(where: {$0.id == targetMemo.id}) {
-            memos.remove(at: index)
-        }
-    }
-}
-
 struct ContentView: View {
-    @ObservedObject var memoStore: MemoStroe = MemoStroe()
-    
     @State var isSheetShowing: Bool = false
-    @State var memoText: String = ""
-    @State var memoColor: Color = .blue
-    let colors:[Color] = [.blue, .cyan, .purple, .yellow, .indigo]
+    @Environment(\.modelContext) var modelContext
+    @Query var memos: [Memo]
     
     var body: some View {
         NavigationStack {
-            List(memoStore.memos) { memo in
+            List(memos) { memo in
                 HStack {
                     VStack(alignment: .leading) {
                         Text("\(memo.text)").font(.title)
@@ -68,11 +29,11 @@ struct ContentView: View {
                 .shadow(radius: 3)
                 .padding()
                 .contextMenu {
-                    ShareLink(item: memo.text)
+                    ShareLink(item: memo.text) //공유 기능
                     Button {
-                        memoStore.removeMemo(memo)
+                        modelContext.delete(memo)
                     } label: {
-                        Image(systemName: "trash.slash")
+                        Image(systemName: "trash")
                         Text("삭제")
                     }
                 }
@@ -80,21 +41,23 @@ struct ContentView: View {
             .listStyle(.plain)
             .navigationTitle("mememo")
             .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
+                ToolbarItem(placement: .topBarTrailing) {
                     Button("추가") {
-                        memoText = ""
-                        isSheetShowing =  true
+                        isSheetShowing = true
                     }
                 }
             }
             .sheet(isPresented: $isSheetShowing) {
-                MemoAddView()
+                MemoAddView(isSheetShowing: $isSheetShowing)
             }
         }
     }
 }
 
+
+
+
 #Preview {
     ContentView()
+        .modelContainer(for: Memo.self, inMemory: true)
 }
-
